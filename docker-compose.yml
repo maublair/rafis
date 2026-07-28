@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  raf-web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: raf-web
+    restart: always
+    networks:
+      - bcode_gateway
+
+networks:
+  bcode_gateway:
+    external: true

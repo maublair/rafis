@@ -1,0 +1,6 @@
+{
+  "name": "Mensaje para Rafis",
+  "description": "Mensaje sorpresa interactivo estilo Spider-Verse y Spider-Punk para Rafis",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
