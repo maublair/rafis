@@ -1,8 +1,10 @@
 export type ScreenStep = 
   | 'intro' 
   | 'person' 
-  | 'spider_sense' 
-  | 'comic_twist' 
+  | 'spider_sense'
+  | 'comic_twist'
+  | 'spider_sense_alert'
+  | 'villain_confrontation'
   | 'deep_1' 
   | 'deep_2' 
   | 'deep_sadness'

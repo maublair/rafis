@@ -15,6 +15,14 @@ export interface MultiverseStepTexts {
     subtitle: string;
     button: string;
   };
+  villain_confrontation: {
+    badge: string;
+    title: string;
+    subtitle: string;
+    villainQuote: string;
+    parentAdvice: string;
+    button: string;
+  };
   deep_1: {
     mainQuote: string;
     c1Title: string;
@@ -94,6 +102,12 @@ export interface MultiverseTheme {
   heroGif: string;
   secondaryGif: string;
   villainName: string;
+  villainTitle: string;
+  villainBadge: string;
+  villainColor: string;
+  spiderSenseTitle: string;
+  spiderSenseColor: string;
+  spiderSenseEffect: string;
   heroQuote: string;
   particleColors: string[];
   gradientBg: string;
@@ -103,7 +117,7 @@ export interface MultiverseTheme {
 
 export const MULTIVERSES: MultiverseTheme[] = [
   // -------------------------------------------------------------
-  // EARTH-616: EL MULTIVERSO CLÁSICO (ORIGINAL TEXT EXACTO)
+  // EARTH-616: EL MULTIVERSO CLÁSICO (PETER PARKER vs DUENDE VERDE)
   // -------------------------------------------------------------
   {
     id: 1,
@@ -118,27 +132,41 @@ export const MULTIVERSES: MultiverseTheme[] = [
     borderShadowColor: '#dc2626',
     heroGif: 'https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHM3a3RhOTdmNDN3ZjZldmY0czBneGZ4ZGtqZ2FmNDkzeG80MnlvdyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/9P3Mev3P92yY3gT1S1/giphy.gif',
     secondaryGif: 'https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExc2pxb3FudW5wbWx5dHRuOHdrMndvcm9mbWNydTZyaHhrdDZjNWkxeSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/oXnN2T95JRHY4/giphy.gif',
-    villainName: 'Duende Verde & Venom',
-    heroQuote: 'Peter Parker dice: Con gran amor viene una gran protección. En cualquier dimensión, la red más invencible es el amor eterno de tu Mamá y tu Papá.',
+    villainName: 'Duende Verde (Green Goblin - Norman Osborn)',
+    villainTitle: '¡EL DUENDE VERDE ATACA CON BOMBAS DE CALABAZA!',
+    villainBadge: '⚠️ ALERTA DE SUPERVILLANO // EARTH-616 ⚠️',
+    villainColor: '#22c55e',
+    spiderSenseTitle: '⚡ ¡ALERTA DE SENTIDO ARÁCNIDO CLÁSICO! ⚡',
+    spiderSenseColor: '#facc15',
+    spiderSenseEffect: 'ONDAS ELÉCTRICAS AMARILLAS Y ROJAS DE ADVERTENCIA',
+    heroQuote: 'Peter Parker dice: Con gran amor viene una gran protección. En cualquier dimensión, la red más invencible es el amor eterno de tu Mamá (Pame) y tu Papá (Mau).',
     particleColors: ['#dc2626', '#facc15', '#2563eb', '#ffffff'],
     gradientBg: 'from-red-600 via-purple-700 to-blue-800',
     buttonGradient: 'from-red-600 to-blue-600 hover:from-red-500 hover:to-blue-500 text-white',
     texts: {
       intro: {
         title: 'Rafis, estamos muy orgullosos de ti',
-        subtitle: 'Un mensaje especial desde el corazón del multiverso enviado por tu Mamá y tu Papá. Toca el botón para iniciar la transmisión.',
+        subtitle: 'Un mensaje especial enviado por tu Mamá (Pame) y tu Papá (Mau). Toca el botón para iniciar la transmisión arácnida.',
         button: 'Siguiente Dimensión',
       },
       person: {
         title: 'Eres una muy buena persona...',
-        subtitle: 'Tu bondad, tu luz y tu manera de ser iluminan cada rincón a tu alrededor. Tu Mamá y tu Papá te aman profundamente.',
+        subtitle: 'Tu bondad, tu luz y tu manera de ser iluminan cada rincón a tu alrededor. Mamá (Pame) y Papá (Mau) te aman profundamente.',
         button: 'Siguiente',
       },
       comic_twist: {
         badge: '⚡ MENSAJE DOMÉSTICO CLÁSICO ⚡',
         phrase: '"pero nos gustaría que nos ayudes más en la casa."',
-        subtitle: '🕷️ ¡Peter Parker recuerda: Mamá y Papá también necesitan un héroe que apoye en la casa!',
-        button: 'Continuar al Mensaje Épico',
+        subtitle: '🕷️ ¡Peter Parker recuerda: Mamá (Pame) y Papá (Mau) también necesitan un héroe que apoye en el hogar!',
+        button: 'Sintonizar Sentido Arácnido',
+      },
+      villain_confrontation: {
+        badge: '⚠️ DESAFÍO MULTIVERSAL // EL DUENDE VERDE ⚠️',
+        title: '¡Los Villanos de la vida siempre intentarán poner a prueba tu fuerza!',
+        subtitle: 'El Duende Verde lanza sus dudas y problemas para intentar hacerte vacilar, pero tienes el respaldo invencible de tu familia.',
+        villainQuote: '"¡JAJAJA! ¡El miedo y los problemas jamás desaparecen por completo, héroe!"',
+        parentAdvice: 'Mamá (Pame) y Papá (Mau) te recuerdan: Ningún villano o problema es más fuerte que tu determinación y nuestro amor.',
+        button: 'Superar la Prueba del Duende',
       },
       deep_1: {
         mainQuote: '"el tiempo ha pasado muy rápido, pero tal vez para ti no, no lo sé, pero sé que aún te falta mucho por ver... por probar... por sentir... aún te falta mucho por vivir..."',
@@ -161,13 +189,13 @@ export const MULTIVERSES: MultiverseTheme[] = [
         p3Title: 'RESILIENCIA',
         p3Desc: 'Saber levantarte con más brillo en cada caída.',
         p4Title: 'MUCHA ALEGRÍA',
-        p4Desc: 'Tu luz única que llena de orgullo a Mamá y Papá.',
+        p4Desc: 'Tu luz única que llena de orgullo a Mamá (Pame) y Papá (Mau).',
         button: 'Siguiente Reflexión',
       },
       deep_sadness: {
         mainQuote: '"y no te olvides que siempre habrán eventos tristes y momentos solos..."',
         c1Title: 'EVENTOS TRISTES',
-        c1Desc: 'Hasta el héroe más grande del multiverso atraviesa días difíciles. Mamá y Papá siempre te respaldarán.',
+        c1Desc: 'Hasta el héroe más grande atravesará días difíciles. Mamá (Pame) y Papá (Mau) siempre serán tu escudo.',
         c2Title: 'MOMENTOS SOLOS',
         c2Desc: 'Instantes para fortalecer tu alma y descubrir de lo que eres capaz.',
         button: 'Siguiente Reflexión',
@@ -185,7 +213,7 @@ export const MULTIVERSES: MultiverseTheme[] = [
         c1Title: 'LA ALEGRÍA ES UNA ELECCIÓN',
         c1Desc: 'Elegir sonreír como tu bandera en cada reto de la vida.',
         c2Title: 'UN ABRAZO AMIGO',
-        c2Desc: 'Mamá y Papá siempre están aquí para sostenerte.',
+        c2Desc: 'Mamá (Pame) y Papá (Mau) siempre están aquí para sostenerte.',
         button: 'Nuestro Origen Mítico',
       },
       deep_gods: {
@@ -200,14 +228,14 @@ export const MULTIVERSES: MultiverseTheme[] = [
       },
       final: {
         title: 'TE AMAMOS, RAFIS',
-        subtitle: 'DE TU MAMÁ Y TU PAPÁ',
-        footerText: 'Inmortales, semi-dioses con mezcla vikinga y sangre de oro. Tu Mamá y tu Papá te aman infinitamente en cualquier rincón del universo.',
+        subtitle: 'DE TU MAMÁ (PAME) Y TU PAPÁ (MAU)',
+        footerText: 'Inmortales, semi-dioses con mezcla vikinga y sangre de oro. Tu Mamá (Pame) y tu Papá (Mau) te aman infinitamente en cualquier rincón del universo.',
       },
     },
   },
 
   // -------------------------------------------------------------
-  // EARTH-138: SPIDER-PUNK (ANARCHY & REBEL)
+  // EARTH-138: SPIDER-PUNK (HOBIE BROWN vs VULTURE ANARCHY)
   // -------------------------------------------------------------
   {
     id: 2,
@@ -222,27 +250,41 @@ export const MULTIVERSES: MultiverseTheme[] = [
     borderShadowColor: '#facc15',
     heroGif: 'https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExd2R4djd3azlpdHZwZXcxdWZ3aGN4cm9tOTU5NGNwaHQxaHN5NHlsZyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/L5aXbsMT2N9b2/giphy.gif',
     secondaryGif: 'https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExcHRqcnR0aW1xYmsxaDJnOTIxcGJyNjN5OHExbWN4NWg0OXo5cWNnbiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/a3O54YYug9K48/giphy.gif',
-    villainName: 'El Sindicato del Caos',
-    heroQuote: 'Hobie Brown dice: ¡No sigo ninguna regla impuesta por nadie, excepto una ley divina: Tu Mamá y tu Papá te aman sin límites en esta y en todas las dimensiones!',
+    villainName: 'Vulture Anarchy (Sindicato del Caos)',
+    villainTitle: '¡VULTURE ANARCHY AMENAZA CON ALAS CIBERNÉTICAS!',
+    villainBadge: '⚠️ ALERTA PUNK // SINDICATO DEL CAOS ⚠️',
+    villainColor: '#e11d48',
+    spiderSenseTitle: '🎸 ¡ALERTA DE SENTIDO ARÁCNIDO PUNK! 🎸',
+    spiderSenseColor: '#e11d48',
+    spiderSenseEffect: 'DISTORSIÓN DE GUITARRA Y STROBO NEÓN ANÁRQUICO',
+    heroQuote: 'Hobie Brown dice: ¡No sigo ninguna regla impuesta, excepto una directiva divina: Tu Mamá (Pame) y tu Papá (Mau) te aman sin límites en esta y en todas las dimensiones!',
     particleColors: ['#facc15', '#e11d48', '#06b6d4', '#a855f7'],
     gradientBg: 'from-yellow-500 via-rose-600 to-cyan-500',
     buttonGradient: 'from-yellow-400 to-rose-600 hover:from-yellow-300 hover:to-rose-500 text-black font-black',
     texts: {
       intro: {
         title: '¡Rafis, en este universo alterno estamos orgullosísimos de ti!',
-        subtitle: 'Un mensaje directo y sin censura desde la banda de Hobie Brown enviado por tu Mamá y tu Papá. ¡Enciende los amplificadores!',
+        subtitle: 'Un mensaje directo desde la banda de Hobie Brown enviado por tu Mamá (Pame) y tu Papá (Mau). ¡Enciende los amplificadores!',
         button: 'Siguiente Dimensión Punk',
       },
       person: {
         title: 'Eres un ser humano increíble y genial...',
-        subtitle: 'Tu autenticidad y tu corazón rebelde iluminan el multiverso entero. Tu Mamá y tu Papá están felices de ser tus padres.',
+        subtitle: 'Tu autenticidad y tu corazón rebelde iluminan el multiverso entero. Mamá (Pame) y Papá (Mau) están felices de ser tus padres.',
         button: 'Avanzar al Solo de Guitarra',
       },
       comic_twist: {
         badge: '⚡ REGLA ANÁRQUICA #1 ⚡',
         phrase: '"¡pero nos encantaría que nos des una mano ordenando el escenario de la casa!"',
         subtitle: '🎸 ¡Hobie Brown aclara: Ni el punk más rebelde deja su cuarto hecho un desastre!',
-        button: 'Siguiente Estrofa Épica',
+        button: 'Sintonizar Frecuencia Punk',
+      },
+      villain_confrontation: {
+        badge: '⚡ BATALLA DE GUITARRAS // VULTURE ANARCHY ⚡',
+        title: '¡Las disonancias y problemas intentarán romper tu propio ritmo!',
+        subtitle: 'Vulture Anarchy busca imponer ruido y desorden en tu camino, pero la distorsión se vence con firmeza y unión familiar.',
+        villainQuote: '"¡Nadie escapa del caos y la sobrecarga de la vida, muchacho!"',
+        parentAdvice: 'Mamá (Pame) y Papá (Mau) te dicen: Afina tu alma con coraje y pon tu canción favorita. ¡Nadie apaga tu melodía!',
+        button: 'Destruir el Ruido del Villano',
       },
       deep_1: {
         mainQuote: '"el tiempo rueda a máxima velocidad, pero aún te queda un universo por explorar, probar, sentir y conquistar... ¡aún tienes toda una vida por rockear!"',
@@ -265,13 +307,13 @@ export const MULTIVERSES: MultiverseTheme[] = [
         p3Title: 'RESILIENCIA PUNK',
         p3Desc: 'Caer, sacudirse el polvo y levantarse con más fuerza.',
         p4Title: 'ALEGRÍA EXPLOSIVA',
-        p4Desc: 'La chispa única que llena de orgullo el alma de Mamá y Papá.',
+        p4Desc: 'La chispa única que llena de orgullo el alma de Mamá (Pame) y Papá (Mau).',
         button: 'Siguiente Compás',
       },
       deep_sadness: {
         mainQuote: '"y ten presente que a veces habrá tormentas, días grises y momentos a solas..."',
         c1Title: 'DÍAS OSCUROS',
-        c1Desc: 'Hasta el héroe más audaz pasa por momentos de pausa. Tu Mamá y tu Papá siempre serán tu refugio seguro.',
+        c1Desc: 'Hasta el héroe más audaz pasa por momentos de pausa. Tu Mamá (Pame) y tu Papá (Mau) siempre serán tu refugio seguro.',
         c2Title: 'PAUSAS A SOLAS',
         c2Desc: 'Momentos para conectar con tu interior y recargar tu poder.',
         button: 'Siguiente Compás',
@@ -289,7 +331,7 @@ export const MULTIVERSES: MultiverseTheme[] = [
         c1Title: 'ELECCIÓN DE LIBERTAD',
         c1Desc: 'Sonreír y mantener la cabeza en alto en cada circunstancias.',
         c2Title: 'ABRAZO INCONDICIONAL',
-        c2Desc: 'El amor de Mamá y Papá es la energía constante de tu vida.',
+        c2Desc: 'El amor de Mamá (Pame) y Papá (Mau) es la energía constante de tu vida.',
         button: 'Origen de Leyendas',
       },
       deep_gods: {
@@ -304,14 +346,14 @@ export const MULTIVERSES: MultiverseTheme[] = [
       },
       final: {
         title: 'TE AMAMOS, RAFIS',
-        subtitle: 'DE TU MAMÁ Y TU PAPÁ',
-        footerText: '¡En esta dimensión y en el multiverso entero, tu Mamá y tu Papá están infinitamente orgullosos de ti, inmutable guerrero con sangre de oro!',
+        subtitle: 'DE TU MAMÁ (PAME) Y TU PAPÁ (MAU)',
+        footerText: '¡En esta dimensión y en el multiverso entero, tu Mamá (Pame) y tu Papá (Mau) están infinitamente orgullosos de ti, inmutable guerrero con sangre de oro!',
       },
     },
   },
 
   // -------------------------------------------------------------
-  // EARTH-1610: MILES MORALES (BROOKLYN GRAFFITI)
+  // EARTH-1610: MILES MORALES (MILES vs EL MERODEADOR / THE PROWLER)
   // -------------------------------------------------------------
   {
     id: 3,
@@ -326,27 +368,41 @@ export const MULTIVERSES: MultiverseTheme[] = [
     borderShadowColor: '#ef4444',
     heroGif: 'https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExZndpdDRicWRldWgydXZicmFpYzZhcXpsODRsdmpoYnhubG9rcjRjcyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3o6Zt62PeJeFUDwBUI/giphy.gif',
     secondaryGif: 'https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExd2R4djd3azlpdHZwZXcxdWZ3aGN4cm9tOTU5NGNwaHQxaHN5NHlsZyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/L5aXbsMT2N9b2/giphy.gif',
-    villainName: 'El Merodeador & Kingpin',
-    heroQuote: 'Miles Morales dice: Un salto de fe me enseñó que no hay fuerza en el universo más grande que la red de amor incondicional con la que Mamá y Papá te cuidan, Rafis.',
+    villainName: 'El Merodeador (The Prowler - Aaron Davis)',
+    villainTitle: '¡EL MERODEADOR DESPLIEGA SUS GARRAS DE ENERGÍA!',
+    villainBadge: '⚠️ AMENAZA EN BROOKLYN // THE PROWLER ⚠️',
+    villainColor: '#a855f7',
+    spiderSenseTitle: '⚡ ¡ALERTA DE SENTIDO ARÁCNIDO BROOKLYN! ⚡',
+    spiderSenseColor: '#38bdf8',
+    spiderSenseEffect: 'PULSO CROMÁTICO Y ADVERTENCIA GRAFFITI NEÓN',
+    heroQuote: 'Miles Morales dice: Un salto de fe me enseñó que no hay fuerza en el universo más grande que la red de amor incondicional con la que Mamá (Pame) y Papá (Mau) te cuidan, Rafis.',
     particleColors: ['#ef4444', '#38bdf8', '#f59e0b', '#ffffff'],
     gradientBg: 'from-red-600 via-purple-700 to-sky-500',
     buttonGradient: 'from-red-600 via-purple-600 to-sky-400 hover:from-red-500 hover:to-sky-300 text-white font-black',
     texts: {
       intro: {
         title: 'Rafis, desde el corazón de Brooklyn, ¡sentimos un orgullo enorme por ti!',
-        subtitle: 'Un mensaje directo desde la dimensión de Miles Morales enviado por tu Mamá y tu Papá. Prepárate para dar el salto de fe.',
+        subtitle: 'Un mensaje directo desde la dimensión de Miles Morales enviado por tu Mamá (Pame) y tu Papá (Mau). Prepárate para dar el salto de fe.',
         button: 'Siguiente Salto Multiversal',
       },
       person: {
         title: 'Eres una persona verdaderamente valiosa...',
-        subtitle: 'Tu carisma, tu empatía y tu calidez hacen de este mundo un lugar infinitamente mejor. Mamá y Papá te aman profundamente.',
+        subtitle: 'Tu carisma, tu empatía y tu calidez hacen de este mundo un lugar infinitamente mejor. Mamá (Pame) y Papá (Mau) te aman profundamente.',
         button: 'Siguiente Paso',
       },
       comic_twist: {
         badge: '⚡ MENSAJE DE LA FAMILIA EN BROOKLYN ⚡',
         phrase: '"¡pero nos vendría genial que nos eches una mano con las tareas de la casa!"',
         subtitle: '🕷️ ¡Miles Morales dice: Hasta el Spider-Man de Brooklyn ayuda a sus padres a ordenar su cuarto!',
-        button: 'Continuar la Trayectoria',
+        button: 'Sintonizar Sentido de Brooklyn',
+      },
+      villain_confrontation: {
+        badge: '⚡ EMBOSCADA DE SOMBRAS // EL MERODEADOR ⚡',
+        title: '¡El peligro acecha en los callejones, pero tu fe te mantiene firme!',
+        subtitle: 'El Merodeador ataca con sus garras de energía morada buscando intimidarte, pero tu fuerza interior brota de tu corazón.',
+        villainQuote: '"¡El camino de la vida está lleno de sombras difíciles de esquivar, chico!"',
+        parentAdvice: 'Mamá (Pame) y Papá (Mau) te alientan: Tu camino lo defines tú mismo con cada salto de fe. ¡Estamos siempre a tu lado!',
+        button: 'Vencer las Sombras del Merodeador',
       },
       deep_1: {
         mainQuote: '"el tiempo pasa volando en la gran ciudad, pero tu historia recién empieza. Te quedan incontables maravillas por descubrir, probar, sentir y disfrutar..."',
@@ -369,13 +425,13 @@ export const MULTIVERSES: MultiverseTheme[] = [
         p3Title: 'RESILIENCIA URBANA',
         p3Desc: 'Aprender de cada tropezón y levantarse más sabio.',
         p4Title: 'ALEGRÍA CONTAGIOSA',
-        p4Desc: 'El regalo más grande que le das a tu Mamá y tu Papá.',
+        p4Desc: 'El regalo más grande que le das a tu Mamá (Pame) y tu Papá (Mau).',
         button: 'Siguiente Estación',
       },
       deep_sadness: {
         mainQuote: '"y ten presente que a veces habrán días difíciles, nubes oscuras y momentos a solas..."',
         c1Title: 'DÍAS COMPLICADOS',
-        c1Desc: 'Es normal sentir incertidumbre a veces. Recuerda que Mamá y Papá siempre son tu equipo de respaldo.',
+        c1Desc: 'Es normal sentir incertidumbre a veces. Recuerda que Mamá (Pame) y Papá (Mau) siempre son tu equipo de respaldo.',
         c2Title: 'MOMENTOS A SOLAS',
         c2Desc: 'Espacios sagrados para reencontrarte con tu fuerza interior.',
         button: 'Siguiente Estación',
@@ -393,7 +449,7 @@ export const MULTIVERSES: MultiverseTheme[] = [
         c1Title: 'DECISIÓN DE VALIENTES',
         c1Desc: 'Elegir el optimismo y la esperanza como tu guía.',
         c2Title: 'ABRAZO CÁLIDO',
-        c2Desc: 'El respaldo incondicional de Mamá y Papá que nunca te faltará.',
+        c2Desc: 'El respaldo incondicional de Mamá (Pame) y Papá (Mau) que nunca te faltará.',
         button: 'Conocer Tu Herencia',
       },
       deep_gods: {
@@ -408,14 +464,14 @@ export const MULTIVERSES: MultiverseTheme[] = [
       },
       final: {
         title: 'TE AMAMOS, RAFIS',
-        subtitle: 'DE TU MAMÁ Y TU PAPÁ',
-        footerText: '¡Desde Brooklyn hasta el rincón más lejano del multiverso, el amor de tu Mamá y tu Papá por ti es infinito e indestructible!',
+        subtitle: 'DE TU MAMÁ (PAME) Y TU PAPÁ (MAU)',
+        footerText: '¡Desde Brooklyn hasta el rincón más lejano del multiverso, el amor de tu Mamá (Pame) y tu Papá (Mau) por ti es infinito e indestructible!',
       },
     },
   },
 
   // -------------------------------------------------------------
-  // EARTH-65: GWEN STACY (GHOST-SPIDER NEON RHYTHM)
+  // EARTH-65: GWEN STACY (GWEN vs EL LAGARTO MUTANTE)
   // -------------------------------------------------------------
   {
     id: 4,
@@ -430,27 +486,41 @@ export const MULTIVERSES: MultiverseTheme[] = [
     borderShadowColor: '#ec4899',
     heroGif: 'https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExeGJidWp1MHp6Znd5eGQzbm43dWR2YmxuNDdpMmEydm03bmJvOW5hdyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/xT9IgzU1aCV8DE2TW8/giphy.gif',
     secondaryGif: 'https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExdW4yMzNscjBsbWxxeHBtOWl3MXh3ZDRocXp6NWQ5bGF2d2szN3FhZCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/aT4L3142XC74I/giphy.gif',
-    villainName: 'El Duende & El Lagarto',
-    heroQuote: 'Gwen Stacy dice: Marcando el ritmo en mi batería multiversal, la canción más hermosa que existe es el amor inmenso que tu Mamá y tu Papá sienten por ti, Rafis.',
+    villainName: 'El Lagarto Mutante (The Lizard of Earth-65)',
+    villainTitle: '¡EL LAGARTO MUTANTE RETA TU ARMONÍA CON SU ZARPAZO!',
+    villainBadge: '⚠️ ALERTA DE AMENAZA MUTANTE // EARTH-65 ⚠️',
+    villainColor: '#15803d',
+    spiderSenseTitle: '⚡ ¡ALERTA DE SENTIDO ARÁCNIDO RÍTMICO! ⚡',
+    spiderSenseColor: '#ec4899',
+    spiderSenseEffect: 'ONDAS ROSA NEÓN Y CIAN DE FRECUENCIA ARÁCNIDA',
+    heroQuote: 'Gwen Stacy dice: Marcando el ritmo en mi batería multiversal, la canción más hermosa que existe es el amor inmenso que tu Mamá (Pame) y tu Papá (Mau) sienten por ti, Rafis.',
     particleColors: ['#ec4899', '#38bdf8', '#a855f7', '#ffffff'],
     gradientBg: 'from-pink-500 via-purple-700 to-cyan-400',
     buttonGradient: 'from-pink-500 via-purple-500 to-cyan-400 hover:from-pink-400 hover:to-cyan-300 text-black font-black',
     texts: {
       intro: {
         title: 'Rafis, ¡en este compás multiversal estamos profundamente orgullosos de ti!',
-        subtitle: 'Un mensaje con ritmo neon desde el universo de Gwen Stacy enviado por tu Mamá y tu Papá. Siente la música.',
+        subtitle: 'Un mensaje con ritmo neon desde el universo de Gwen Stacy enviado por tu Mamá (Pame) y tu Papá (Mau). Siente la música.',
         button: 'Siguiente Melodía',
       },
       person: {
         title: 'Eres una persona maravillosamente especial...',
-        subtitle: 'Tu dulzura, tu sensibilidad y tu fuerza hacen que la vida sea una hermosa melodía. Tu Mamá y tu Papá te adoran.',
+        subtitle: 'Tu dulzura, tu sensibilidad y tu fuerza hacen que la vida sea una hermosa melodía. Tu Mamá (Pame) y tu Papá (Mau) te adoran.',
         button: 'Siguiente Nota',
       },
       comic_twist: {
         badge: '⚡ NOTA RÍTMICA DE CASA ⚡',
         phrase: '"¡pero nos encantaría que mantengas tu espacio tan ordenado como un solo de batería!"',
         subtitle: '🥁 ¡Gwen Stacy recuerda: Para sonar en armonía, hay que mantener limpia la base!',
-        button: 'Continuar el Concierto',
+        button: 'Sintonizar Sentido de Gwen',
+      },
+      villain_confrontation: {
+        badge: '⚡ DESAFÍO EN EL ESCENARIO // EL LAGARTO ⚡',
+        title: '¡Las tormentas mutantes intentarán cambiar la melodía de tu felicidad!',
+        subtitle: 'El Lagarto ruge amenazante intentando sembrar incertidumbre, pero tu música interna es más fuerte que cualquier rugido.',
+        villainQuote: '"¡Tus sueños se romperán en pedazos bajo la sombra del caos!"',
+        parentAdvice: 'Mamá (Pame) y Papá (Mau) te sostienen: Agarra fuerte tus baquetas de la vida y sigue tocando tu canción. ¡Brillarás siempre!',
+        button: 'Dominar la Furia del Lagarto',
       },
       deep_1: {
         mainQuote: '"el tiempo marca su propio ritmo acelerado, pero a ti te espera una sinfonía hermosa por ver, probar, sentir y vivir..."',
@@ -473,13 +543,13 @@ export const MULTIVERSES: MultiverseTheme[] = [
         p3Title: 'RESILIENCIA NEON',
         p3Desc: 'Saber transformar los contratiempos en bellos acordes.',
         p4Title: 'PROFUNDA ALEGRÍA',
-        p4Desc: 'El sonido brillante que enamora a Mamá y Papá.',
+        p4Desc: 'El sonido brillante que enamora a Mamá (Pame) y Papá (Mau).',
         button: 'Siguiente Acorde',
       },
       deep_sadness: {
         mainQuote: '"y recuerda que a veces habrán notas tristes, pausas de soledad y momentos difíciles..."',
         c1Title: 'NOTAS TRISTES',
-        c1Desc: 'Son partes naturales de la composición. Mamá y Papá son tus coros eternos de amor.',
+        c1Desc: 'Son partes naturales de la composición. Mamá (Pame) y Papá (Mau) son tus coros eternos de amor.',
         c2Title: 'PAUSAS DE SOLEDAD',
         c2Desc: 'Momentos de silencio creativo para afinar tu alma.',
         button: 'Siguiente Acorde',
@@ -497,7 +567,7 @@ export const MULTIVERSES: MultiverseTheme[] = [
         c1Title: 'TU MEJOR INTERPRETASE',
         c1Desc: 'Decidir ver la luz y la esperanza en todo momento.',
         c2Title: 'ABRAZO AMIGO',
-        c2Desc: 'El amor protector de Mamá y Papá que nunca te deja solo.',
+        c2Desc: 'El amor protector de Mamá (Pame) y Papá (Mau) que nunca te deja solo.',
         button: 'Escuchar el Origen',
       },
       deep_gods: {
@@ -512,14 +582,14 @@ export const MULTIVERSES: MultiverseTheme[] = [
       },
       final: {
         title: 'TE AMAMOS, RAFIS',
-        subtitle: 'DE TU MAMÁ Y TU PAPÁ',
-        footerText: '¡En cada compás y en cada universo, tu Mamá y tu Papá te aman con todo el corazón, noble héroe de sangre de oro!',
+        subtitle: 'DE TU MAMÁ (PAME) Y TU PAPÁ (MAU)',
+        footerText: '¡En cada compás y en cada universo, tu Mamá (Pame) y tu Papá (Mau) te aman con todo el corazón, noble héroe de sangre de oro!',
       },
     },
   },
 
   // -------------------------------------------------------------
-  // EARTH-2099: MIGUEL O'HARA (CYBERPUNK FUTURO CANÓNICO)
+  // EARTH-2099: MIGUEL O'HARA (MIGUEL vs THE SPOT - EL ABISMO)
   // -------------------------------------------------------------
   {
     id: 5,
@@ -534,27 +604,41 @@ export const MULTIVERSES: MultiverseTheme[] = [
     borderShadowColor: '#0284c7',
     heroGif: 'https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExcHRqcnR0aW1xYmsxaDJnOTIxcGJyNjN5OHExbWN4NWg0OXo5cWNnbiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/a3O54YYug9K48/giphy.gif',
     secondaryGif: 'https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExeGJidWp1MHp6Znd5eGQzbm43dWR2YmxuNDdpMmEydm03bmJvOW5hdyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3o6Zt62PeJeFUDwBUI/giphy.gif',
-    villainName: 'Alchemax & Buitre 2099',
-    heroQuote: "Miguel O'Hara dice: Analicé todas las líneas temporales e hilos cuánticos del multiverso: en el 100% de ellas, el amor de tu Mamá y tu Papá por ti es un evento canónico indestructible.",
+    villainName: 'The Spot (El Abismo Multiversal)',
+    villainTitle: '¡THE SPOT ABRE PORTALES DE MASA OSCURA EN EL CONTINUO!',
+    villainBadge: '⚠️ ALERTA CANÓNICA CRÍTICA // THE SPOT ⚠️',
+    villainColor: '#000000',
+    spiderSenseTitle: '⚡ ¡ALERTA DE SENTIDO ARÁCNIDO CUÁNTICO 2099! ⚡',
+    spiderSenseColor: '#f43f5e',
+    spiderSenseEffect: 'INTERFAZ HOLOGRÁFICA ROJA Y ESCÁNER CUÁNTICO',
+    heroQuote: "Miguel O'Hara dice: Analicé todas las líneas temporales e hilos cuánticos del multiverso: en el 100% de ellas, el amor de tu Mamá (Pame) y tu Papá (Mau) por ti es un evento canónico indestructible.",
     particleColors: ['#0284c7', '#f43f5e', '#fbbf24', '#06b6d4'],
     gradientBg: 'from-sky-600 via-blue-800 to-rose-600',
     buttonGradient: 'from-sky-500 via-blue-600 to-rose-500 hover:from-sky-400 hover:to-rose-400 text-white font-black',
     texts: {
       intro: {
         title: 'Rafis, en la red del futuro 2099, ¡nuestro orgullo por ti es absoluto!',
-        subtitle: "Un mensaje cuántico directo desde el laboratorio de Miguel O'Hara enviado por tu Mamá y tu Papá. Conexión establecida.",
+        subtitle: "Un mensaje cuántico enviado por tu Mamá (Pame) y tu Papá (Mau). Conexión temporal establecida.",
         button: 'Siguiente Coordenada Multiversal',
       },
       person: {
         title: 'Eres un ser humano de altísima nobleza...',
-        subtitle: 'Tu integridad, tu mente brillante y tu nobleza destacan en cada simulación. Tu Mamá y tu Papá te aman profundamente.',
+        subtitle: 'Tu integridad, tu mente brillante y tu nobleza destacan en cada simulación. Tu Mamá (Pame) y tu Papá (Mau) te aman profundamente.',
         button: 'Siguiente Protocolo',
       },
       comic_twist: {
         badge: "⚡ PROTOCOLO DOMÉSTICO 2099 ⚡",
         phrase: '"¡pero la Spider-Society requiere que colabores más en las tareas del hogar!"',
         subtitle: "🕷️ Miguel O'Hara confirma: ¡El mantenimiento de la base familiar es una prioridad de nivel alfa!",
-        button: 'Continuar la Secuencia',
+        button: 'Sintonizar Sentido 2099',
+      },
+      villain_confrontation: {
+        badge: '⚡ ANOMALÍA MULTIVERSAL // THE SPOT ⚡',
+        title: '¡El abismo multiversal querrá distorsionar tus certezas!',
+        subtitle: 'The Spot desata portales de masa oscura buscando desestabilizar el continuum, pero la red de amor de tu familia es inquebrantable.',
+        villainQuote: '"¡Voy a quitarte todo lo que valoras en cada dimensión!"',
+        parentAdvice: 'Mamá (Pame) y Papá (Mau) sellan el código: Tu amor es nuestro Evento Canónico Indestructible. ¡Vencerás cualquier portal!',
+        button: 'Estabilizar el Continuum y Vencer',
       },
       deep_1: {
         mainQuote: '"el tiempo cibernético avanza vertiginosamente, pero tu expediente apenas inicia. Tienes infinitos horizontes por explorar, probar, sentir y experimentar..."',
@@ -577,13 +661,13 @@ export const MULTIVERSES: MultiverseTheme[] = [
         p3Title: 'CAPACIDAD DE ADAPTACIÓN',
         p3Desc: 'Evolucionar y superarte frente a cada eventualidad.',
         p4Title: 'DESLUMBRANTE ALEGRÍA',
-        p4Desc: 'El algoritmo de luz que enorgullece a Mamá y Papá.',
+        p4Desc: 'El algoritmo de luz que enorgullece a Mamá (Pame) y Papá (Mau).',
         button: 'Siguiente Fase',
       },
       deep_sadness: {
         mainQuote: '"y ten por seguro que a veces habrán anomalías tristes, momentos de aislamiento o turbulencia..."',
         c1Title: 'ANOMALÍAS TEMPORALES',
-        c1Desc: 'Los momentos difíciles no alteran tu valor real. Mamá y Papá son tu cortafuegos y respaldo permanente.',
+        c1Desc: 'Los momentos difíciles no alteran tu valor real. Mamá (Pame) y Papá (Mau) son tu cortafuegos y respaldo permanente.',
         c2Title: 'ISLAS DE REFLEXIÓN',
         c2Desc: 'Espacios para calibrar tu mente y fortalecer tu espíritu.',
         button: 'Siguiente Fase',
@@ -601,7 +685,7 @@ export const MULTIVERSES: MultiverseTheme[] = [
         c1Title: 'DIRECTIVA PRINCIPAL',
         c1Desc: 'Elegir el entusiasmo como el núcleo de tus decisiones.',
         c2Title: 'ABRAZO DE SOPORTE',
-        c2Desc: 'El amor de Mamá y Papá cifrado para siempre en tu alma.',
+        c2Desc: 'El amor de Mamá (Pame) y Papá (Mau) cifrado para siempre en tu alma.',
         button: 'Consultar Código Genético',
       },
       deep_gods: {
@@ -616,8 +700,8 @@ export const MULTIVERSES: MultiverseTheme[] = [
       },
       final: {
         title: 'TE AMAMOS, RAFIS',
-        subtitle: 'DE TU MAMÁ Y TU PAPÁ',
-        footerText: '¡En el año 2099 y en cada dimensión del continuo, el amor de tu Mamá y tu Papá por ti es un evento canónico eterno e indestructible!',
+        subtitle: 'DE TU MAMÁ (PAME) Y TU PAPÁ (MAU)',
+        footerText: '¡En el año 2099 y en cada dimensión del continuo, el amor de tu Mamá (Pame) y tu Papá (Mau) por ti es un evento canónico eterno e indestructible!',
       },
     },
   },

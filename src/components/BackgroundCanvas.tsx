@@ -46,33 +46,35 @@ export const BackgroundCanvas: React.FC<BackgroundCanvasProps> = ({
 
     window.addEventListener('resize', handleResize);
 
-    // Color choices based on multiverse theme and step
+    const isVillainStep = currentStep === 'villain_confrontation' || currentStep === 'deep_sadness' || currentStep === 'deep_fear';
+
     const getColors = () => {
+      if (isVillainStep) {
+        return ['#dc2626', '#a855f7', '#22c55e', '#000000', '#ea580c'];
+      }
       if (multiverse?.particleColors?.length) {
         return multiverse.particleColors;
       }
       return ['#ffd700', '#ff0055', '#00ffff', '#ffffff'];
     };
 
-    // Spawn new particle
     const createParticle = (): Particle => {
       const colors = getColors();
       const color = colors[Math.floor(Math.random() * colors.length)];
-      const speedMultiplier = currentStep === 'spider_sense' ? 2.5 : 1.0;
+      const speedMultiplier = (currentStep === 'spider_sense' || currentStep === 'spider_sense_alert' || isVillainStep) ? 2.8 : 1.0;
       return {
         x: Math.random() * width,
         y: Math.random() * height,
-        vx: (Math.random() - 0.5) * speedMultiplier * 1.5,
-        vy: (Math.random() - 0.5) * speedMultiplier * 1.5 - (currentStep.startsWith('deep_') ? 0.8 : 0),
-        size: Math.random() * (currentStep === 'final' ? 4 : 2.5) + 1,
+        vx: (Math.random() - 0.5) * speedMultiplier * 1.8,
+        vy: (Math.random() - 0.5) * speedMultiplier * 1.8 - (currentStep.startsWith('deep_') ? 0.8 : 0),
+        size: Math.random() * (currentStep === 'final' ? 4 : 3) + 1,
         color,
         alpha: Math.random() * 0.7 + 0.3,
         decay: Math.random() * 0.005 + 0.002,
       };
     };
 
-    // Init initial particles
-    particles = Array.from({ length: 65 }, createParticle);
+    particles = Array.from({ length: 70 }, createParticle);
 
     let tick = 0;
 
@@ -80,7 +82,7 @@ export const BackgroundCanvas: React.FC<BackgroundCanvasProps> = ({
       tick++;
       ctx.clearRect(0, 0, width, height);
 
-      // 1. Dark Gradient Base
+      // Radial Gradient Background Base
       const bgGrad = ctx.createRadialGradient(
         width / 2,
         height / 2,
@@ -90,11 +92,15 @@ export const BackgroundCanvas: React.FC<BackgroundCanvasProps> = ({
         Math.max(width, height)
       );
 
-      if (currentStep.startsWith('deep_') || currentStep === 'final') {
+      if (isVillainStep) {
+        bgGrad.addColorStop(0, '#2e0505');
+        bgGrad.addColorStop(0.5, '#17020d');
+        bgGrad.addColorStop(1, '#050002');
+      } else if (currentStep.startsWith('deep_') || currentStep === 'final') {
         bgGrad.addColorStop(0, '#1c052e');
         bgGrad.addColorStop(0.6, '#0d0218');
         bgGrad.addColorStop(1, '#05000a');
-      } else if (currentStep === 'spider_sense') {
+      } else if (currentStep === 'spider_sense' || currentStep === 'spider_sense_alert') {
         bgGrad.addColorStop(0, '#330012');
         bgGrad.addColorStop(0.5, '#190022');
         bgGrad.addColorStop(1, '#08000d');
@@ -107,70 +113,25 @@ export const BackgroundCanvas: React.FC<BackgroundCanvasProps> = ({
       ctx.fillStyle = bgGrad;
       ctx.fillRect(0, 0, width, height);
 
-      // 2. Spider Sense Waves (when in spider_sense step)
-      if (currentStep === 'spider_sense' || spiderSenseLevel > 0) {
+      // Spider Sense Waves
+      if (currentStep === 'spider_sense' || currentStep === 'spider_sense_alert' || spiderSenseLevel > 0) {
         const centerX = width / 2;
         const centerY = height / 2;
-        const wavesCount = 5;
+        const wavesCount = 6;
 
         for (let i = 0; i < wavesCount; i++) {
-          const radius = ((tick * 3 + i * 70) % 350) + 20;
-          const alpha = 1 - radius / 370;
+          const radius = ((tick * 3.5 + i * 60) % 380) + 20;
+          const alpha = 1 - radius / 400;
 
           ctx.beginPath();
           ctx.arc(centerX, centerY, radius, 0, Math.PI * 2);
-          ctx.strokeStyle = i % 2 === 0 ? `rgba(255, 0, 85, ${alpha})` : `rgba(0, 240, 255, ${alpha})`;
-          ctx.lineWidth = i % 2 === 0 ? 3 : 2;
+          ctx.strokeStyle = i % 2 === 0 ? `rgba(239, 68, 68, ${alpha})` : `rgba(250, 204, 21, ${alpha})`;
+          ctx.lineWidth = i % 2 === 0 ? 4 : 2;
           ctx.stroke();
-
-          // Squiggly spider-sense spikes
-          if (radius > 50 && radius < 300) {
-            ctx.save();
-            ctx.translate(centerX, centerY);
-            ctx.rotate((tick * 0.02 + i) % (Math.PI * 2));
-            for (let a = 0; a < Math.PI * 2; a += Math.PI / 4) {
-              const x1 = Math.cos(a) * radius;
-              const y1 = Math.sin(a) * radius;
-              const x2 = Math.cos(a) * (radius + 18);
-              const y2 = Math.sin(a) * (radius + 18);
-
-              ctx.beginPath();
-              ctx.moveTo(x1, y1);
-              ctx.lineTo(x2, y2);
-              ctx.strokeStyle = multiverse.accentColor || '#ffe600';
-              ctx.lineWidth = 2;
-              ctx.stroke();
-            }
-            ctx.restore();
-          }
         }
       }
 
-      // 3. Spider Web Background Vector Lines
-      ctx.save();
-      ctx.strokeStyle = 'rgba(157, 0, 255, 0.08)';
-      ctx.lineWidth = 1;
-      const webCenterX = width * 0.85;
-      const webCenterY = height * 0.15;
-
-      for (let r = 40; r < Math.max(width, height); r += 60) {
-        ctx.beginPath();
-        ctx.arc(webCenterX, webCenterY, r, 0, Math.PI * 2);
-        ctx.stroke();
-      }
-
-      for (let angle = 0; angle < Math.PI * 2; angle += Math.PI / 6) {
-        ctx.beginPath();
-        ctx.moveTo(webCenterX, webCenterY);
-        ctx.lineTo(
-          webCenterX + Math.cos(angle) * Math.max(width, height),
-          webCenterY + Math.sin(angle) * Math.max(width, height)
-        );
-        ctx.stroke();
-      }
-      ctx.restore();
-
-      // 4. Floating Particles (Multiverse Dust)
+      // Floating Particles
       particles.forEach((p, index) => {
         p.x += p.vx;
         p.y += p.vy;
@@ -183,17 +144,9 @@ export const BackgroundCanvas: React.FC<BackgroundCanvasProps> = ({
           ctx.globalAlpha = p.alpha;
           ctx.fillStyle = p.color;
 
-          if (currentStep === 'final') {
-            ctx.beginPath();
-            ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-            ctx.fill();
-            ctx.shadowColor = p.color;
-            ctx.shadowBlur = 8;
-          } else {
-            ctx.beginPath();
-            ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-            ctx.fill();
-          }
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+          ctx.fill();
           ctx.restore();
         }
       });
