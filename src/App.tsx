@@ -83,7 +83,7 @@ export default function App() {
 
       {/* 4. Footer Branding & Spider-Verse Tagline */}
       <footer className="relative z-10 py-3 text-center text-xs font-mono text-zinc-500 uppercase tracking-widest border-t border-zinc-900 bg-black/60 backdrop-blur-xs">
-        <span>INSPIRADO EN SPIDER-VERSE // CON TODO EL AMOR DE MAMÁ (PAME) Y PAPÁ (MAU) PARA RAFIS ❤️</span>
+        <span>INSPIRADO EN SPIDER-VERSE // CON TODO EL AMOR DE TUS PAPÁS PARA RAFIS ❤️</span>
       </footer>
     </div>
   );
