@@ -36,6 +36,9 @@ export default function App() {
     const nextIdx = stepIndex + 1;
     if (nextIdx < STEPS_ORDER.length) {
       setCurrentStep(STEPS_ORDER[nextIdx]);
+    } else {
+      // Loop to next multiverse!
+      handleRestartMultiverse();
     }
   };
 
@@ -48,12 +51,20 @@ export default function App() {
     setCurrentStep('intro');
   };
 
+  const handleSelectMultiverse = (index: number) => {
+    if (soundEnabled) {
+      playGlitchSound();
+    }
+    setMultiverseIndex(index);
+    setCurrentStep('intro');
+  };
+
   return (
     <div className="relative min-h-screen w-full bg-[#030008] text-white flex flex-col justify-between overflow-x-hidden selection:bg-rose-600 selection:text-white font-sans">
       {/* 1. Animated Interactive Background Canvas */}
       <BackgroundCanvas currentStep={currentStep} multiverse={currentMultiverse} />
 
-      {/* 2. Top Header Bar (No Back Button) */}
+      {/* 2. Top Header Bar with Direct Multiverse Selector */}
       <ComicHeader
         currentStep={currentStep}
         soundEnabled={soundEnabled}
@@ -61,20 +72,26 @@ export default function App() {
         stepIndex={stepIndex}
         totalSteps={STEPS_ORDER.length}
         multiverse={currentMultiverse}
+        multiverseIndex={multiverseIndex}
+        onSelectMultiverse={handleSelectMultiverse}
       />
 
       {/* 3. Main Sequence View Area */}
-      <main className="flex-1 flex items-center justify-center px-4 py-20 z-10 w-full max-w-4xl mx-auto">
+      <main className="flex-1 flex items-center justify-center px-2 sm:px-4 py-16 sm:py-20 z-10 w-full max-w-4xl mx-auto">
         <AnimatePresence mode="wait">
           {currentStep === 'spider_sense' || currentStep === 'spider_sense_alert' ? (
-            <SpiderSensePause key={`${currentStep}_m${multiverseIndex}`} onComplete={handleNext} soundEnabled={soundEnabled} multiverse={currentMultiverse} step={currentStep} />
+            <SpiderSensePause
+              key={`${currentStep}_m${multiverseIndex}`}
+              onComplete={handleNext}
+              soundEnabled={soundEnabled}
+              multiverse={currentMultiverse}
+              step={currentStep}
+            />
           ) : (
             <ScreenContent
               key={`${currentStep}_m${multiverseIndex}`}
               currentStep={currentStep}
               onNext={handleNext}
-              onRestartMultiverse={handleRestartMultiverse}
-              soundEnabled={soundEnabled}
               multiverse={currentMultiverse}
             />
           )}
@@ -82,7 +99,7 @@ export default function App() {
       </main>
 
       {/* 4. Footer Branding & Spider-Verse Tagline */}
-      <footer className="relative z-10 py-3 text-center text-xs font-mono text-zinc-500 uppercase tracking-widest border-t border-zinc-900 bg-black/60 backdrop-blur-xs">
+      <footer className="relative z-10 py-3 text-center text-[10px] sm:text-xs font-mono text-zinc-500 uppercase tracking-widest border-t border-zinc-900 bg-black/80 backdrop-blur-xs px-2">
         <span>INSPIRADO EN SPIDER-VERSE // CON TODO EL AMOR DE TUS PAPÁS PARA RAFIS ❤️</span>
       </footer>
     </div>
